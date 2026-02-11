@@ -133,6 +133,149 @@
         Web oficial del club: <strong>www.fcsb.ro</strong>
     </p>
 </section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FCSB - Juego de la Pelota</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        margin:0;
+        text-align:center;
+        background:#ffffff;
+    }
+
+    header{
+        background:#d32f2f;
+        color:#ffeb3b;
+        padding:20px;
+    }
+
+    nav{
+        background:#1976d2;
+        padding:15px;
+    }
+
+    nav a{
+        color:#ffeb3b;
+        margin:15px;
+        text-decoration:none;
+        font-weight:bold;
+    }
+
+    section{
+        margin:30px auto;
+        max-width:900px;
+        padding:20px;
+    }
+
+    /* ZONA DEL JUEGO */
+    #zonaJuego{
+        width:600px;
+        height:400px;
+        margin:20px auto;
+        border:4px solid #1976d2;
+        position:relative;
+        background:#e3f2fd;
+        overflow:hidden;
+    }
+
+    #pelota{
+        width:60px;
+        height:60px;
+        background-image:url("https://cdn-icons-png.flaticon.com/512/53/53283.png");
+        background-size:cover;
+        position:absolute;
+        cursor:pointer;
+    }
+
+    #marcador{
+        font-size:20px;
+        font-weight:bold;
+        margin-top:10px;
+    }
+
+    button{
+        padding:10px 15px;
+        background:#1976d2;
+        color:white;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+    }
+
+    footer{
+        background:#d32f2f;
+        color:#ffeb3b;
+        padding:10px;
+        margin-top:30px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>⚽ FCSB - Juego Atrapa la Pelota</h1>
+</header>
+
+<nav>
+    <a href="#juego">Ir al Juego</a>
+</nav>
+
+<section id="juego">
+    <h2>Haz clic en la pelota para marcar gol</h2>
+
+    <div id="zonaJuego">
+        <div id="pelota"></div>
+    </div>
+
+    <div id="marcador">Goles: 0</div>
+    <br>
+    <button onclick="iniciarJuego()">Iniciar Juego</button>
+</section>
+
+<footer>
+© 2026 - Juego FCSB
+</footer>
+
+<script>
+let goles = 0;
+let intervalo;
+let pelota = document.getElementById("pelota");
+let zona = document.getElementById("zonaJuego");
+
+function moverPelota(){
+    let maxX = zona.clientWidth - 60;
+    let maxY = zona.clientHeight - 60;
+
+    let randomX = Math.floor(Math.random() * maxX);
+    let randomY = Math.floor(Math.random() * maxY);
+
+    pelota.style.left = randomX + "px";
+    pelota.style.top = randomY + "px";
+}
+
+function iniciarJuego(){
+    goles = 0;
+    document.getElementById("marcador").innerHTML = "Goles: 0";
+
+    moverPelota();
+    intervalo = setInterval(moverPelota, 800);
+}
+
+pelota.addEventListener("click", function(){
+    goles++;
+    document.getElementById("marcador").innerHTML = "Goles: " + goles;
+    moverPelota();
+});
+</script>
+
+</body>
+</html>
 
     <footer>
         © 2026 - Web dedicada al Fotbal Club FCSB
@@ -140,6 +283,7 @@
 
 </body>
 </html>
+
 
 
 
