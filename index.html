@@ -276,6 +276,25 @@ pelota.addEventListener("click", function(){
     <footer>
         © 2026 - Web dedicada al Fotbal Club FCSB
     </footer>
+   <script>
+function mostrarImagen(seccion){
+
+    // Oculta todas las imágenes
+    let imagenes = document.querySelectorAll("section img");
+    imagenes.forEach(function(img){
+        img.style.display = "none";
+    });
+
+    // Muestra solo la imagen correcta
+    let imagen = document.querySelector("#" + seccion + " img");
+    if(imagen){
+        imagen.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html> 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -291,6 +310,7 @@ s0.parentNode.insertBefore(s1,s0);
 <!--End of Tawk.to Script-->
 </body>
 </html>
+
 
 
 
